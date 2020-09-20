@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.0/css/bulma.min.css" />
+  <title>[Mahmud S.] Freelancer.com Contest#1819714</title>
+</head>
+
+<body class="has-background-white-ter">
+  <main class="container">
+    <nav class="navbar has-background-white-ter" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item">
+          <img src="logo.png">
+        </a>
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+          data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item">
+            Home
+          </a>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-primary is-small">
+                <strong>Sign Up</strong>
+              </a>
+              <a class="button is-primary is-outlined is-small">
+                Sign In
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section class="my-6" x-data="init()" x-init="init()">
+      <div class="level">
+        <div class="level-left">
+          <span class="is-size-3 has-text-weight-bold" x-ref="timer"></span>
+        </div>
+        <div class="level-right">
+          <div class="buttons">
+            <template x-for="(pair, index) in pairs" :key="index">
+              <button class="button" :class="{ 'is-active': pair.$ }" x-text="'Para ' + (index + 1)"
+                @click="reveal(index)"></button>
+            </template>
+          </div>
+        </div>
+      </div>
+      <template x-for="pair in pairs">
+        <div class="columns is-multiline my-0" :class="{ 'is-hidden': !pair.$ }">
+          <div class="column is-half" x-html="pair.p"></div>
+          <div class="column is-half" x-html="pair.s" style="line-height: 2;"></div>
+        </div>
+      </template>
+      <div class="level mt-4">
+        <div class="level-left">
+          <div class="buttons" x-ref="jumpers"></div>
+        </div>
+        <div class="level-right">
+          <div class="buttons">
+            <button class="button is-primary" x-ref="submit" @click.once="submit()">Submit</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer has-background-white-ter px-0">
+      <div class="level">
+        <div class="level-left">
+          &copy; theBackup.xyz
+        </div>
+        <div class="level-right">
+          facebook
+        </div>
+      </div>
+    </footer>
+  </main>
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
