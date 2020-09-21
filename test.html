@@ -4,20 +4,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.0/css/bulma.min.css" />
   <title>[Mahmud S.] Freelancer.com Contest#1819714</title>
   <style>
-    .columns.is-centered .column.is-half:first-of-type {
-      border: 0.125rem solid black;
-      border-radius: 0.75rem;
-      margin: 0 0 5rem 0;
+    body {
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+
+    body,
+    .navbar,
+    .footer {
+      background: #ecf4f3;
+    }
+
+    .hr {
+      position: fixed;
+      left: 0;
+      top: 3.25rem;
+      width: 100%;
+      border: 0.03125rem solid black;
+    }
+
+    .card-content a {
+      /* border: 0.0625rem solid black; */
+      padding: 0.325rem 1.25rem;
+    }
+
+    .card-content a:nth-child(odd) {
+      background: #f2f2f2;
+    }
+
+    .card-content a:nth-child(even) {
+      background: #fafafa;
+    }
+
+    .card-content a:not(:last-child) {
+      margin-bottom: 0.125rem;
     }
   </style>
 </head>
 
-<body class="has-background-white-ter">
+<body>
   <main class="container">
-    <nav class="navbar has-background-white-ter" role="navigation" aria-label="main navigation">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item">
           <img src="logo.png">
@@ -49,33 +80,33 @@
         </div>
       </div>
     </nav>
-    <section class="my-6 columns is-multiline is-centered">
-      <div class="column is-half">
-        <h1 class="title has-text-centered">Global Test</h1>
-      </div>
-      <div class="column is-two-thirds py-1">
+    <div class="hr"></div>
+    <section class="my-6 columns is-centered">
+      <div class="column is-one-third">
         <div class="card">
           <div class="card-content">
-            <a class="is-block block has-text-centered">Test 1</a>
-          </div>
-        </div>
-      </div>
-      <div class="column is-two-thirds py-1">
-        <div class="card">
-          <div class="card-content">
-            <a class="is-block block has-text-centered">Test 2</a>
-          </div>
-        </div>
-      </div>
-      <div class="column is-two-thirds py-1">
-        <div class="card">
-          <div class="card-content">
-            <a class="is-block block has-text-centered">Test 3</a>
+            <div class="title has-text-centered">Test 1</div>
+            <a class="is-block block">
+              <span class="icon"><i class="fas fa-envelope-open-text"></i></span>
+              <span>1. Link One</span>
+            </a>
+            <a class="is-block block">
+              <span class="icon"><i class="fas fa-envelope-open-text"></i></span>
+              <span>2. Link Two</span>
+            </a>
+            <a class="is-block block">
+              <span class="icon"><i class="fas fa-envelope-open-text"></i></span>
+              <span>3. Link Three</span>
+            </a>
+            <a class="is-block block">
+              <span class="icon"><i class="fas fa-envelope-open-text"></i></span>
+              <span>4. Link Four</span>
+            </a>
           </div>
         </div>
       </div>
     </section>
-    <footer class="footer has-background-white-ter px-0">
+    <footer class="footer px-0">
       <div class="level">
         <div class="level-left">
           &copy; theBackup.xyz
