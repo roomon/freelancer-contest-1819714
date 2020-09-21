@@ -4,8 +4,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.0/css/bulma.min.css" />
   <title>[Mahmud S.] Freelancer.com Contest#1819714</title>
+  <style>
+    body {
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+
+    .container {
+      position: unset;
+    }
+
+    .hr {
+      position: absolute;
+      left: 0;
+      top: 3.25rem;
+      width: 100%;
+      border: 0.03125rem solid black;
+    }
+
+    .is-flex {
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 -0.75rem;
+    }
+
+    .columns .column {
+      border: 0.0625rem solid black;
+      height: 28rem;
+      overflow-y: scroll;
+    }
+
+    .columns .column:first-child {
+      border: none;
+      background: #66bfbf;
+    }
+
+    .level {
+      margin: 0 -0.75rem;
+    }
+
+    .level .level-left,
+    .level .level-right {
+      flex-shrink: 1;
+    }
+
+    .buttons .button {
+      margin-bottom: 0.125rem;
+    }
+
+    .buttons .button:not(:last-child):not(.is-fullwidth) {
+      margin-right: 0.125rem;
+    }
+  </style>
 </head>
 
 <body class="has-background-white-ter">
@@ -42,24 +94,26 @@
         </div>
       </div>
     </nav>
-    <section class="my-6" x-data="init()" x-init="init()">
-      <div class="level">
-        <div class="level-left">
-          <span class="is-size-3 has-text-weight-bold" x-ref="timer"></span>
+    <div class="hr"></div>
+    <section class="my-5" x-data="init()" x-init="init()">
+      <div class="is-flex has-background-grey-light mb-3 px-2 py-2">
+        <div style="width: 11rem;"></div>
+        <div>
+          <span class="is-size-4 has-text-weight-bold has-text-link" x-ref="timer"></span>
         </div>
-        <div class="level-right">
+        <div>
           <div class="buttons">
-            <template x-for="(pair, index) in pairs" :key="index">
-              <button class="button" :class="{ 'is-active': pair.$ }" x-text="'Para ' + (index + 1)"
-                @click="reveal(index)"></button>
+            <template x-for="(pair, index) in pairs">
+              <button class="button is-small" :class="{ 'is-active': pair.$, 'is-link': index === 0 }"
+                x-text="'Para ' + (index + 1)" @click="reveal(index)"></button>
             </template>
           </div>
         </div>
       </div>
       <template x-for="pair in pairs">
-        <div class="columns is-multiline my-0" :class="{ 'is-hidden': !pair.$ }">
-          <div class="column is-half" x-html="pair.p"></div>
-          <div class="column is-half" x-html="pair.s" style="line-height: 2;"></div>
+        <div class="columns my-0" :class="{ 'is-hidden': !pair.$ }">
+          <div class="column" x-html="pair.p"></div>
+          <div class="column" x-html="pair.s" style="line-height: 2;"></div>
         </div>
       </template>
       <div class="level mt-4">

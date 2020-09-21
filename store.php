@@ -6,11 +6,9 @@ $id = 1;
 if (count($data) > 0) {
   try {
     $pdo = require_once './_.php';
-    foreach ($data as $x) {
-      foreach ($x as $k => $v) {
-        $stmt = $pdo->prepare('UPDATE `GlobalTest` SET `' . $k . '` = ? WHERE `ID` = ?');
-        $stmt->execute([$v, $id]);
-      }
+    foreach ($data as $k => $v) {
+      $stmt = $pdo->prepare('UPDATE `GlobalTest` SET `' . $k . '` = ? WHERE `ID` = ?');
+      $stmt->execute([$v, $id]);
     }
     http_response_code(201);
     header('Content-Type: application/json');
