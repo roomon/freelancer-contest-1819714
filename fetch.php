@@ -1,6 +1,6 @@
 <?php
 
-$id = 1;
+$id = $_GET['id'];
 try {
   $pdo = require_once './_.php';
   $stmt = $pdo->prepare('SELECT `ParagraphOne`, `SectionOne`, `ParagraphTwo`, `SectionTwo`, `ParagraphThree`, `SectionThree` FROM `GlobalTest` WHERE `ID` = ?');

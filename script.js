@@ -1,13 +1,14 @@
 const MINUTES = 30;
 function init() {
   const answers = {};
+  const qs = new URLSearchParams(window.location.search);
   let i = 0;
   return {
     timer: null,
     countdown: null,
     pairs: [],
     async init() {
-      const response = await fetch('fetch.php');
+      const response = await fetch('fetch.php?id=' + qs.get('id'));
       const { message, data } = await response.json();
       if (response.status !== 200) {
         this.$refs.timer.innerText = message;
@@ -81,7 +82,7 @@ function init() {
     async submit() {
       clearInterval(this.timer);
       this.$refs.submit.disabled = true;
-      const response = await fetch('store.php', {
+      const response = await fetch('store.php?id=' + qs.get('id'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(answers),
@@ -90,7 +91,7 @@ function init() {
       if (response.status !== 201) {
         alert(message);
       } else {
-        location.href = 'index.html';
+        location.href = 'test.html';
       }
     },
   };

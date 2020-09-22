@@ -28,7 +28,6 @@
     }
 
     .card-content a {
-      /* border: 0.0625rem solid black; */
       padding: 0.325rem 1.25rem;
     }
 
@@ -85,23 +84,7 @@
       <div class="column is-one-third">
         <div class="card">
           <div class="card-content">
-            <div class="title has-text-centered">Test 1</div>
-            <a class="is-block block">
-              <span class="icon"><i class="fas fa-envelope-open-text"></i></span>
-              <span>1. Link One</span>
-            </a>
-            <a class="is-block block">
-              <span class="icon"><i class="fas fa-envelope-open-text"></i></span>
-              <span>2. Link Two</span>
-            </a>
-            <a class="is-block block">
-              <span class="icon"><i class="fas fa-envelope-open-text"></i></span>
-              <span>3. Link Three</span>
-            </a>
-            <a class="is-block block">
-              <span class="icon"><i class="fas fa-envelope-open-text"></i></span>
-              <span>4. Link Four</span>
-            </a>
+            <div class="title has-text-centered">GlobalTest</div>
           </div>
         </div>
       </div>
@@ -117,6 +100,28 @@
       </div>
     </footer>
   </main>
+  <script>
+    (async () => {
+      const response = await fetch('load.php');
+      const { data } = await response.json();
+      const content = document.querySelector('.card .card-content');
+      if (data.length) {
+        for (const datum of data) {
+          content.innerHTML += `
+          <a href="final.html?id=${datum}" class="is-block block">
+            <span class="icon"><i class="fas fa-envelope-open-text"></i></span>
+            <span>Link #${datum}</span>
+          </a>`;
+        }
+      } else {
+        content.innerHTML += `
+        <div>
+          <span class="icon"><i class="fas fa-envelope-open-text"></i></span>
+          <span>No tests found!</span>
+        </div>`;
+      }
+    })()
+  </script>
 </body>
 
 </html>

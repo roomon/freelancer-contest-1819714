@@ -1,15 +1,24 @@
 <?php
 
+$id = $_GET['id'];
 $input = file_get_contents('php://input');
 $data = json_decode($input, true);
-$id = 1;
 if (count($data) > 0) {
+  $K = [];
+  $P = [];
+  $V = [];
+  array_push($K, 'TestID');
+  array_push($P, '?');
+  array_push($V, $id);
   try {
     $pdo = require_once './_.php';
     foreach ($data as $k => $v) {
-      $stmt = $pdo->prepare('UPDATE `GlobalTest` SET `' . $k . '` = ? WHERE `ID` = ?');
-      $stmt->execute([$v, $id]);
+      array_push($K, $k);
+      array_push($P, '?');
+      array_push($V, $v);
     }
+    $stmt = $pdo->prepare('INSERT INTO `GlobalTestAnswer` (' . implode(',', $K) . ') VALUES (' . implode(',', $P) . ')');
+    $stmt->execute($V);
     http_response_code(201);
     header('Content-Type: application/json');
     echo json_encode(['message' => 'Received!']);
